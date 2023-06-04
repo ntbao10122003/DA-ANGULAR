@@ -15,6 +15,9 @@ import { SigninComponent } from './page/signin/signin.component';
 import { InfoUserComponent } from './page/info-user/info-user.component';
 import { AdminPageComponent } from './page/admin/admin-page/admin-page.component';
 import { AdminLayoutComponent } from './layout/adminLayout/admin-layout/admin-layout.component';
+import { ProductAddComponent } from './page/admin/product-add/product-add.component';
+import { ProductEditComponent } from './page/admin/product-edit/product-edit.component';
+import { NavbarAdminComponent } from './page/admin/navbar-admin/navbar-admin.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { AdminLayoutComponent } from './layout/adminLayout/admin-layout/admin-la
     SigninComponent,
     InfoUserComponent,
     AdminPageComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    ProductAddComponent,
+    ProductEditComponent,
+    NavbarAdminComponent
   ],
   imports: [
     BrowserModule,

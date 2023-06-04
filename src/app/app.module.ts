@@ -14,6 +14,7 @@ import { SignupComponent } from './page/signup/signup.component';
 import { SigninComponent } from './page/signin/signin.component';
 import { InfoUserComponent } from './page/info-user/info-user.component';
 import { AdminPageComponent } from './page/admin/admin-page/admin-page.component';
+import { AdminLayoutComponent } from './layout/adminLayout/admin-layout/admin-layout.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdminPageComponent } from './page/admin/admin-page/admin-page.component
     SignupComponent,
     SigninComponent,
     InfoUserComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    AdminLayoutComponent
   ],
   imports: [
     BrowserModule,

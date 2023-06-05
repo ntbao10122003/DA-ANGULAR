@@ -29,52 +29,52 @@
                 </div>
 
                 <div>
-                    <form>
+                    <form (ngSubmit)="onHandleAdd()" [formGroup]="productForm">
                         <!-- 2 column grid layout with text inputs for the first and last names -->
                         <div class="row mb-4">
                           <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="form6Example1">tên</label>
-                              <input type="text" id="form6Example1" class="form-control" />
+                              <input type="text" id="form6Example1" class="form-control" formControlName="name" />
                             </div>
                           </div>
                           <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="form6Example2">giá</label>
-                              <input type="text" id="form6Example2" class="form-control" />
+                              <input type="number" id="form6Example2" class="form-control" formControlName="price" />
                             </div>
                           </div>
                         </div>
                       
                         <!-- Text input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form6Example3">mô tả ngắn</label>
-                          <input type="text" id="form6Example3" class="form-control" />
+                            <label class="form-label" for="form6Example3">mô tả</label>
+                          <input type="text" id="form6Example3" class="form-control" formControlName="description" />
                         </div>
                       
                         <!-- Text input -->
-                        <div class="form-outline mb-4">
+                        <!-- <div class="form-outline mb-4">
                             <label class="form-label" for="form6Example4">thương hiệu</label>
                           <input type="text" id="form6Example4" class="form-control" />
-                        </div>
+                        </div> -->
                       
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form6Example5">danh mục</label>
-                          <input type="email" id="form6Example5" class="form-control" />
+                          <input type="text" id="form6Example5" class="form-control" formControlName="categoryId" />
                         </div>
                       
                         <!-- Number input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form6Example6">ảnh</label>
-                            <input type="file" id="form6Example6" class="form-control" />
+                            <input type="file" id="form6Example6" multiple (change)="onFileChange($event)" class="form-control" formControlName="img" />
                         </div>
                       
                         <!-- Message input -->
-                        <div class="form-outline mb-4">
+                        <!-- <div class="form-outline mb-4">
                             <label class="form-label" for="form6Example7">mô tả dài</label>
                           <textarea class="form-control" id="form6Example7" rows="4"></textarea>
-                        </div>
+                        </div> -->
                       
                     
                       

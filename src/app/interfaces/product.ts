@@ -2,7 +2,9 @@ export interface IProduct {
     _id ?: number,
     name:string,
     price : number,
-    description : string,
+    shortDesc: string,
+    brand: string,
     categoryId: string,
-    img: string
+    images: string,
+    longDesc: string
 }

@@ -10,7 +10,6 @@ import { SigninComponent } from './page/signin/signin.component';
 import { InfoUserComponent } from './page/info-user/info-user.component';
 import { AdminPageComponent } from './page/admin/admin-page/admin-page.component';
 import { AdminLayoutComponent } from './layout/adminLayout/admin-layout/admin-layout.component';
-import { NavbarAdminComponent } from './page/admin/navbar-admin/navbar-admin.component';
 import { ProductAddComponent } from './page/admin/product-add/product-add.component';
 import { ProductEditComponent } from './page/admin/product-edit/product-edit.component';
 
@@ -30,7 +29,6 @@ const routes: Routes = [
 
 
   {path:"admin",component:AdminLayoutComponent,children:[
-    {path:"nav",component:NavbarAdminComponent},
     {path:"add", component:ProductAddComponent},
     {path:"edit/:id", component:ProductEditComponent},
   ]}

@@ -3,7 +3,7 @@
         
         <div class="page-header">
             <h1>Dashboard</h1>
-            <small>Home / add</small>
+            <!-- <small>Home / add</small> -->
         </div>
         
         <div class="page-content">
@@ -34,13 +34,13 @@
                         <div class="row mb-4">
                           <div class="col">
                             <div class="form-outline">
-                                <label class="form-label" for="form6Example1">tên</label>
+                                <label class="form-label" for="form6Example1">Tên</label>
                               <input type="text" id="form6Example1" class="form-control" formControlName="name" />
                             </div>
                           </div>
                           <div class="col">
                             <div class="form-outline">
-                                <label class="form-label" for="form6Example2">giá</label>
+                                <label class="form-label" for="form6Example2">Giá</label>
                               <input type="number" id="form6Example2" class="form-control" formControlName="price" />
                             </div>
                           </div>
@@ -48,38 +48,41 @@
                       
                         <!-- Text input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form6Example3">mô tả</label>
-                          <input type="text" id="form6Example3" class="form-control" formControlName="description" />
+                            <label class="form-label" for="form6Example3">Mô tả</label>
+                          <input type="text" id="form6Example3" class="form-control" formControlName="shortDesc" />
                         </div>
                       
                         <!-- Text input -->
-                        <!-- <div class="form-outline mb-4">
-                            <label class="form-label" for="form6Example4">thương hiệu</label>
-                          <input type="text" id="form6Example4" class="form-control" />
-                        </div> -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form6Example4">Thương hiệu</label>
+                          <input type="text" id="form6Example4" class="form-control" formControlName="brand" />
+                        </div>
                       
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form6Example5">danh mục</label>
-                          <input type="text" id="form6Example5" class="form-control" formControlName="categoryId" />
+                          <label class="form-label" for="form6Example5">Danh mục</label>
+                          <select formControlName="categoryId">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let categoryId of categories" [value]="categoryId._id">{{ categoryId.name }}</option>
+                          </select>
                         </div>
                       
                         <!-- Number input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form6Example6">ảnh</label>
-                            <input type="file" id="form6Example6" multiple (change)="onFileChange($event)" class="form-control" formControlName="img" />
+                            <label class="form-label" for="form6Example6">Ảnh</label>
+                            <input type="file" id="form6Example6" multiple (change)="onFileChange($event)" class="form-control" formControlName="images" />
                         </div>
                       
                         <!-- Message input -->
-                        <!-- <div class="form-outline mb-4">
-                            <label class="form-label" for="form6Example7">mô tả dài</label>
-                          <textarea class="form-control" id="form6Example7" rows="4"></textarea>
-                        </div> -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form6Example7">Mô tả dài</label>
+                          <textarea class="form-control" id="form6Example7" rows="4" formControlName="longDesc"></textarea>
+                        </div>
                       
                     
                       
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">add products</button>
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Submit</button>
                       </form>
                 </div>
 

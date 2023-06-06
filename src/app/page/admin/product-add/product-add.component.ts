@@ -4,6 +4,7 @@ import { IProduct } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/services.component';
 import { HttpClient } from '@angular/common/http';
 import { UploadServiceService } from 'src/app/services/upload-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-add',
@@ -15,16 +16,20 @@ export class ProductAddComponent {
     private productService: ProductService,
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private uploadService: UploadServiceService
+    private uploadService: UploadServiceService,
+    private router: Router
   ) { }
-
+  
+  categories: any[] = [];
   files: File[] = [];
   productForm = this.formBuilder.group({
     name: [''],
     price: [0],
-    description: [''],
+    shortDesc: [''],
+    brand: [''],
     categoryId: [''],
-    img: ['']
+    images: [''],
+    longDesc: [''],
   });
 
   async uploadFiles(files: File[]) {
@@ -51,23 +56,31 @@ export class ProductAddComponent {
   async onHandleAdd() {
     if (this.productForm.valid) {
       const product: IProduct = {
-        name: this.productForm.value.name || '',
+        // _id: this.productForm._id,
+        name: this.productForm.value.name || "",
         price: this.productForm.value.price || 0,
-        description: this.productForm.value.description || '',
-        categoryId: this.productForm.value.categoryId || '',
-        img: this.productForm.value.img || '',
+        shortDesc: this.productForm.value.shortDesc || "",
+        brand: this.productForm.value.brand || "",
+        categoryId: this.productForm.value.categoryId || "",
+        images: this.productForm.value.images || "",
+        longDesc: this.productForm.value.longDesc || "",
       };
       const uploadedImageUrl = await this.uploadFiles(this.files);
       if (uploadedImageUrl) {
-        product.img = uploadedImageUrl;
+        product.images = uploadedImageUrl;
       }
       
       this.productService.addProduct(product).subscribe((product) => {
         console.log('Thành công', product);
+        this.router.navigate(['/admin']);
       });
     }
   }
-  
+  ngOnInit() {
+    this.productService.getCategories().subscribe((categories) => {
+      this.categories = categories;
+    });
+  }
   onFileChange(event: any) {
     this.files = event.target.files;
   }

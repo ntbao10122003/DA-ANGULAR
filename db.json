@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "_id": 1,
+      "name": "Áo sơ mi nam",
+      "price": 25.99
+    },
+    {
+      "_id": 2,
+      "name": "Quần jeans nam",
+      "price": 39.99
+    },
+    {
+      "id": 3,
+      "name": "Giày thể thao nữ",
+      "price": 29.99
+    }
+  ]
+}

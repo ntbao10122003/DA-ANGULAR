@@ -39,7 +39,7 @@ import { NavbarAdminComponent } from './page/admin/navbar-admin/navbar-admin.com
     AdminLayoutComponent,
     ProductAddComponent,
     ProductEditComponent,
-    NavbarAdminComponent,
+    NavbarAdminComponent
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,6 @@ export class HomePageComponent implements OnInit{
     this.ProductService.getProducts().subscribe(res =>{
       this.products = res.docs;
       console.log(this.products);
-      
     })
   }
   

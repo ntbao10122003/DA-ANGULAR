@@ -12,6 +12,9 @@ import { AdminPageComponent } from './page/admin/admin-page/admin-page.component
 import { AdminLayoutComponent } from './layout/adminLayout/admin-layout/admin-layout.component';
 import { ProductAddComponent } from './page/admin/product-add/product-add.component';
 import { ProductEditComponent } from './page/admin/product-edit/product-edit.component';
+import { CategoryListComponent } from './page/admin/category/category-list/category-list.component';
+import { CategoryAddComponent } from './page/admin/category/category-add/category-add.component';
+import { CategoryEditComponent } from './page/admin/category/category-edit/category-edit.component';
 
 const routes: Routes = [
   {path: "", component: BaseLayoutComponent, children: [
@@ -31,6 +34,10 @@ const routes: Routes = [
   {path:"admin",component:AdminLayoutComponent,children:[
     {path:"add", component:ProductAddComponent},
     {path:"edit/:id", component:ProductEditComponent},
+    {path:"category" , component:CategoryListComponent},
+    {path:"categoryAdd" , component:CategoryAddComponent},
+    {path:"categoryEdit" , component:CategoryEditComponent}
+
   ]}
 ];
 

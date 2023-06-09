@@ -1,9 +1,8 @@
 <input type="checkbox" id="menu-toggle">
-    <div class="sidebar">
+    <!-- <div class="sidebar">
         <div class="side-header">
             <h3>M<span>odern</span></h3>
         </div>
-        
         
         <div class="side-content">
             <div class="profile">
@@ -15,7 +14,7 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                       <a routerLink="/admin" class="">
+                       <a href="" class="actve">
                             <a href="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                                     <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
@@ -25,27 +24,26 @@
                         </a>
                     </li>
                     <li>
-                       <a routerLink="category">
+                       <a href="">
                            <a href=""> 
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                             </svg>
                            </a>
-                            <small>Category</small>
+                            <small>User</small>
                         </a>
                     </li>
                  
-    
+
                 </ul>
             </div>
         </div>
-        
     </div>
-    
+     -->
     <div class="main-content">
         
-        <header>
+        <!-- <header>
             <div class="header-content">
                 <label for="menu-toggle">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -84,7 +82,7 @@
                     </div>
                 </div>
             </div>
-        </header>
+        </header> -->
         
         
         <main>
@@ -116,7 +114,7 @@
                             </select>
                         </div>
                         <div>
-                            <button routerLink="add">Add Product</button>
+                            <button routerLink="categoryAdd">Add Product</button>
                         </div>
                     </div>
 
@@ -129,26 +127,18 @@
                                     <th> NAME</th>
                                     <th> PRICE</th>
                                     <th> SHORT DESC</th>
-                                    <th> BRAND</th>
-                                    <th> CATEGORY</th>
-                                    <th> IMAGES</th>
-                                    <th> LONG DESC</th>
-                                    <th>ACTION</th>
+                                  
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor = "let product of products; index as i" >
-                                    <td>{{i + 1}}</td>
-                                    <td>{{product.name}}</td>
-                                    <td>{{product.price}}</td>
-                                    <td>{{product.shortDesc}}</td>
-                                    <td>{{product.brand}}</td>
-                                    <td>{{getCategoryName(product.categoryId)}}</td>
-                                    <td><img src="{{product.images}}" alt="" width="150"></td>
-                                    <td>{{product.longDesc}}</td>
+                                <tr>
+                                    <td>stt</td>
+                                    <td>name</td>
+                                    <td>danh muc</td>
+                                   
                                     <td>
-                                        <button class="btn btn-danger" (click)="onHandleRemove(product._id)">Remove</button> 
-                                        <button class="btn btn-primary"><a [routerLink]="['edit/'+ product._id]" style="color: aliceblue;">Edit</a></button>
+                                        <button class="btn btn-danger">Remove</button> 
+                                        <button routerLink="categoryEdit" class="btn btn-primary"><a  style="color: aliceblue;">Edit</a></button>
                                     </td>
                                 </tr>
                                 

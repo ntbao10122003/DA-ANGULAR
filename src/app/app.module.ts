@@ -21,6 +21,9 @@ import { AdminLayoutComponent } from './layout/adminLayout/admin-layout/admin-la
 import { ProductAddComponent } from './page/admin/product-add/product-add.component';
 import { ProductEditComponent } from './page/admin/product-edit/product-edit.component';
 import { NavbarAdminComponent } from './page/admin/navbar-admin/navbar-admin.component';
+import { CategoryListComponent } from './page/admin/category/category-list/category-list.component';
+import { CategoryAddComponent } from './page/admin/category/category-add/category-add.component';
+import { CategoryEditComponent } from './page/admin/category/category-edit/category-edit.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { NavbarAdminComponent } from './page/admin/navbar-admin/navbar-admin.com
     AdminLayoutComponent,
     ProductAddComponent,
     ProductEditComponent,
-    NavbarAdminComponent
+    NavbarAdminComponent,
+    CategoryListComponent,
+    CategoryAddComponent,
+    CategoryEditComponent,
   ],
   imports: [
     BrowserModule,

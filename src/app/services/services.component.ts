@@ -35,11 +35,11 @@ export class ProductService {
   getCategoryById (id: any):Observable<any> {
     return this.http.get<ICategories[]> (`http://localhost:8080/api/categories/${id}`)
   }
-  addCategory (product: ICategories):Observable<any> {
-    return this.http.post<ICategories[]> (`http://localhost:8080/api/categories`, product)
+  addCategory (category: ICategories):Observable<any> {
+    return this.http.post<ICategories[]> (`http://localhost:8080/api/categories`, category)
   }
-  updateCategory (product : ICategories):Observable<IProduct> {
-    return this.http.patch<IProduct> (`http://localhost:8080/api/categories/${product._id}`,product)
+  updateCategory (category : ICategories):Observable<IProduct> {
+    return this.http.patch<IProduct> (`http://localhost:8080/api/categories/${category._id}`,category)
   }
   deleteCategory (id:any):Observable<IProduct> {
     return this.http.delete<IProduct> (`http://localhost:8080/api/categories/${id}`)

@@ -8,6 +8,7 @@ import { ProductService } from 'src/app/services/services.component';
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent {
+  
   categories: any[] = [];
   products : IProduct[] = [];
   constructor (private ProductService : ProductService){}

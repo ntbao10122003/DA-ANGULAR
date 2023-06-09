@@ -1,12 +1,11 @@
 <h1>Shopping Cart</h1>
 <div class="cart-container">
-    <div class="cart-item">
+    <div *ngFor="let cartItem of cartInfo" class="cart-item" class="cart-item">
         <div class="img">
-            <img src="https://contents.mediadecathlon.com/p1752592/a830e6c5e2503a7ee4ed50156e34bda3/p1752592.jpg?f=650x650&format=auto"
-                alt="Product 2">
-        </div>
+            <!-- <img src="{{ cartItem.items.productImage }}">        -->
+         </div>
         <div class="namePr">
-            <h4>XE ĐẠP THÀNH PHỐ HILAND DOVE HIU7002</h4>
+            <h4>{{ cartItem.items[0].name }}</h4>
         </div>
         <div class="quantity-input">
             <button class="quantity-btn minus">-</button>

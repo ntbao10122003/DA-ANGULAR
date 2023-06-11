@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../services/cart.service';
-import { ICart } from '../../interfaces/cart';
+import { ICart, ICartItem } from '../../interfaces/cart';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +9,7 @@ import { ICart } from '../../interfaces/cart';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  cartInfo: ICart[] = [];
+  cartInfo: ICartItem[] = [];
   id!: string | null;
 
   constructor(private route: ActivatedRoute, private cartService: CartService) { }

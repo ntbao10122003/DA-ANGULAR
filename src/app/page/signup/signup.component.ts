@@ -34,7 +34,7 @@ export class SignupComponent {
   onHandleSubmit(){
     if(this.formSignup.valid){
       this.authService.signup(this.formSignup.value).subscribe((data) =>{
-        alert('đăng ký thành công');
+        alert('Đăng ký thành công');
         this.router.navigateByUrl('/signin');
       })
     }

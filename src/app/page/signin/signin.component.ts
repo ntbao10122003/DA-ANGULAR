@@ -10,8 +10,10 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SigninComponent {
   loginForm : FormGroup;
   constructor(
-    private userService : AuthService,
-    private router :Router
+    // private userService : AuthService,
+    private router :Router,
+    private authService: AuthService,
+    
   ){
     this.loginForm = new FormGroup({
       email : new FormControl ('',[Validators.email, Validators.required]),
@@ -24,10 +26,10 @@ export class SigninComponent {
 
   onSubmit() {
     const data = this.loginForm.value;
-    this.userService.signin(data).subscribe((user) => {
-      console.log(user);
-      localStorage.setItem('accessToken',JSON.stringify(user))
-      alert("đăng nhập thành công")
+    this.authService.signin(data).subscribe((auth) => {
+      console.log(auth);
+      localStorage.setItem('userInfo',JSON.stringify(auth))
+      alert("Đăng nhập thành công")
       this.router.navigateByUrl('/admin')
     })
   }

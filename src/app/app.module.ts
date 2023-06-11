@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,9 @@ import { NavbarAdminComponent } from './page/admin/navbar-admin/navbar-admin.com
 import { CategoryListComponent } from './page/admin/category/category-list/category-list.component';
 import { CategoryAddComponent } from './page/admin/category/category-add/category-add.component';
 import { CategoryEditComponent } from './page/admin/category/category-edit/category-edit.component';
+import { AuthInterceptor } from './auth.interceptor';
+import { AuthService } from './services/auth.service';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { CategoryEditComponent } from './page/admin/category/category-edit/categ
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

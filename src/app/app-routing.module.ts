@@ -15,6 +15,7 @@ import { ProductEditComponent } from './page/admin/product-edit/product-edit.com
 import { CategoryListComponent } from './page/admin/category/category-list/category-list.component';
 import { CategoryAddComponent } from './page/admin/category/category-add/category-add.component';
 import { CategoryEditComponent } from './page/admin/category/category-edit/category-edit.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path: "", component: BaseLayoutComponent, children: [
@@ -27,11 +28,11 @@ const routes: Routes = [
   {path: "signup", component: SignupComponent},
   {path: "signin", component: SigninComponent},
   {
-    path: "admin", component: AdminPageComponent
+    path: "admin", component: AdminPageComponent, canActivate: [AuthGuard]
   },
 
 
-  {path:"admin",component:AdminLayoutComponent,children:[
+  {path: "admin", component: AdminLayoutComponent, canActivate: [AuthGuard], children: [
     {path:"add", component:ProductAddComponent},
     {path:"edit/:id", component:ProductEditComponent},
     {path:"category" , component:CategoryListComponent},

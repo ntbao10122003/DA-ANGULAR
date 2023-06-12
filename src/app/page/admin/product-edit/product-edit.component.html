@@ -52,7 +52,7 @@
                         <!-- Number input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form6Example6">Ảnh</label>
-                            <input type="file" id="form6Example6" class="form-control" formControlName="images"/>
+                            <input type="file" id="form6Example6" multiple (change)="onFileChange($event)" class="form-control" formControlName="images"/>
                         </div>
                       
                         <!-- Message input -->

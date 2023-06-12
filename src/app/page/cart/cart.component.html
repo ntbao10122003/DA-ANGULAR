@@ -34,18 +34,18 @@
     <div class="container-cartInfo">
         <div class="info">
             <h1>Thông tin thanh toán</h1>
-            <form>
+            <form [formGroup]="cartForm">
                 <div class="form-group">
                     <label for="name">Họ và tên:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" formControlName="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" formControlName="email" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Số điện thoại:</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <input type="tel" id="phone" name="phone" formControlName="phone" required>
                 </div>
                 <div class="form-group">
                     <label for="address">Địa chỉ:</label>
@@ -60,13 +60,17 @@
                 <thead>
                     <tr>
                         <th>Sản phẩm</th>
-                        <th>Tổng</th>
+                        <th>Giá</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let cartItem of cartInfo">
                         <td><strong>{{cartItem.name}}</strong> x{{cartItem.quantity}}</td>
                         <td>{{cartItem.price * cartItem.quantity}} đ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tổng số tiền:</strong></td>
+                        <td><strong style="color: red;">{{totalAmount}} đ</strong></td>
                     </tr>
                 </tbody>
             </table>

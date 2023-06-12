@@ -21,12 +21,13 @@ export class CartService {
     );
   }
 
-  createCartItem(cartId: string, productId: any, name: string, price: number, quantity: number): Observable<any> {
+  createCartItem(cartId: string, productId: any, name: string, price: number, quantity: number, images: string): Observable<any> {
     const body = {
       productId: productId,
       name: name,
       price: price,
-      quantity: quantity
+      quantity: quantity,
+      images: images
     };
     return this.Http.post<any>(`http://localhost:8080/api/${cartId}/add/cartItem`, body);
   }

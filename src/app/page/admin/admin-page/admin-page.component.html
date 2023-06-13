@@ -88,18 +88,13 @@
         
         
         <main>
-            
             <div class="page-header">
                 <h1>Dashboard</h1>
                 <small>Home / Dashboard</small>
             </div>
             
             <div class="page-content">
-            
-
-
                 <div class="records table-responsive">
-
                     <div class="record-header">
                         <div class="add">
                             <span>Entries</span>
@@ -108,9 +103,10 @@
                             </select>
                             <button>Add record</button>
                         </div>
-
+            
                         <div class="browse">
-                           <input type="search" placeholder="Search" class="record-search">
+                            <input type="text" [(ngModel)]="searchTerm" placeholder="Search products" (keyup.enter)="search()" />
+            
                             <select name="" id="">
                                 <option value="">Status</option>
                             </select>
@@ -119,47 +115,43 @@
                             <button routerLink="add">Add Product</button>
                         </div>
                     </div>
-
+            
                     <div>
                         <table width="100%">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <!-- <th> CLIENT</th> -->
-                                    <th> NAME</th>
-                                    <th> PRICE</th>
-                                    <th> SHORT DESC</th>
-                                    <th> BRAND</th>
-                                    <th> CATEGORY</th>
-                                    <th> IMAGES</th>
-                                    <th> LONG DESC</th>
+                                    <th>NAME</th>
+                                    <th>PRICE</th>
+                                    <th>SHORT DESC</th>
+                                    <th>BRAND</th>
+                                    <th>CATEGORY</th>
+                                    <th>IMAGES</th>
+                                    <th>LONG DESC</th>
                                     <th>ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor = "let product of products; index as i" >
-                                    <td>{{i + 1}}</td>
-                                    <td>{{product.name}}</td>
-                                    <td>{{product.price}}</td>
-                                    <td>{{product.shortDesc}}</td>
-                                    <td>{{product.brand}}</td>
-                                    <td>{{getCategoryName(product.categoryId)}}</td>
-                                    <td><img src="{{product.images}}" alt="" width="150"></td>
-                                    <td>{{product.longDesc}}</td>
+                                <tr *ngFor="let product of filteredProducts; index as i">
+                                    <td>{{ i + 1 }}</td>
+                                    <td>{{ product.name }}</td>
+                                    <td>{{ product.price }}</td>
+                                    <td>{{ product.shortDesc }}</td>
+                                    <td>{{ product.brand }}</td>
+                                    <td>{{ getCategoryName(product.categoryId) }}</td>
+                                    <td><img src="{{ product.images }}" alt="" width="150"></td>
+                                    <td>{{ product.longDesc }}</td>
                                     <td>
                                         <button class="btn btn-danger" (click)="onHandleRemove(product._id)">Remove</button> 
                                         <button class="btn btn-primary"><a [routerLink]="['edit/'+ product._id]" style="color: aliceblue;">Edit</a></button>
                                     </td>
                                 </tr>
-                                
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-            
             </div>
-            
         </main>
+        
         
     </div>

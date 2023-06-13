@@ -8,27 +8,47 @@ import { ProductService } from 'src/app/services/services.component';
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent {
-  
+  searchTerm: string = '';
+  filteredProducts: IProduct[] = [];
   categories: any[] = [];
-  products : IProduct[] = [];
-  constructor (private ProductService : ProductService){}
-  getCategoryName(categoryId: string): string {
-    const category = this.categories.find(c => c._id === categoryId);
-    return category ? category.name : '';
-  }
-  ngOnInit():void  {
-    this.ProductService.getProducts().subscribe(res =>{
+  products: IProduct[] = [];
+
+  constructor(private productService: ProductService) {}
+
+  ngOnInit(): void {
+    this.productService.getProducts().subscribe(res => {
       this.products = res.docs;
       console.log(this.products);
+      this.search();
     });
-    this.ProductService.getCategories().subscribe(res => {
+
+    this.productService.getCategories().subscribe(res => {
       this.categories = res;
       console.log(this.categories);
     });
   }
-  onHandleRemove(id: any){
-      this.ProductService.deleteProduct(id).subscribe(() => {
-        location.reload()
-      })
-}
+
+  search(): void {
+    this.filteredProducts = this.products.filter(product => {
+      const nameMatch = product.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+      const priceMatch = product.price.toString().includes(this.searchTerm);
+  
+      return nameMatch || priceMatch;
+    });
+  
+    // Xử lý kết quả tìm kiếm ở đây (hiển thị danh sách, thông báo, vv.)
+    console.log(this.filteredProducts);
+  }
+  
+
+  getCategoryName(categoryId: string): string {
+    const category = this.categories.find(c => c._id === categoryId);
+    return category ? category.name : '';
+  }
+
+  onHandleRemove(id: any) {
+    this.productService.deleteProduct(id).subscribe(() => {
+      location.reload();
+    });
+  }
 }

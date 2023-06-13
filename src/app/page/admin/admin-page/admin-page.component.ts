@@ -29,13 +29,17 @@ export class AdminPageComponent {
   }
 
   search(): void {
-    this.filteredProducts = this.products.filter(product =>
-      product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
-
+    this.filteredProducts = this.products.filter(product => {
+      const nameMatch = product.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+      const priceMatch = product.price.toString().includes(this.searchTerm);
+  
+      return nameMatch || priceMatch;
+    });
+  
     // Xử lý kết quả tìm kiếm ở đây (hiển thị danh sách, thông báo, vv.)
     console.log(this.filteredProducts);
   }
+  
 
   getCategoryName(categoryId: string): string {
     const category = this.categories.find(c => c._id === categoryId);
